@@ -12,12 +12,13 @@ $( document ).ready( function(){
     // NOT WORKING YET :(
     // using a test object
     var objectToSend = {
-      name: 'testName',
-      age: 'testName',
-      gender: 'testName',
-      readyForTransfer: 'testName',
-      notes: 'testName',
+      name: $('#nameIn').val(),
+      age: $('#ageIn').val(),
+      gender: $('#genderIn').val(),
+      readyForTransfer: $('#readyForTransferIn').val(),
+      notes: $('#notesIn').val()
     };
+    console.log(objectToSend);
     // call saveKoala with the new obejct
     saveKoala( objectToSend );
   }); //end addButton on click
@@ -39,18 +40,20 @@ function getKoalas(){
 
 function saveKoala( newKoala ){
   console.log( 'in saveKoala', newKoala );
-  // ajax call to server to get koalas
+  // ajax call to server to send koalas
   $.ajax({
     url: '/koalas',
     type: 'POST',
     data: newKoala,
     success: function( data ){
-      console.log( 'got some koalas: ', data );
+      console.log( 'sent some koalas: ', data );
+      getKoalas();
     } // end success
   }); //end ajax
 }
 
 function appendToDom(koalas) {
+  $('#viewKoalas').empty();
   console.log('koalas!: ', koalas);
   for(var i = 0; i < koalas.length; i+=1) {
     var $tr = $('<tr></tr>');

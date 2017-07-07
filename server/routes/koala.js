@@ -44,37 +44,37 @@ router.get('/', function(req, res){
   }); // end pool
 }); // end of GET
 
-// router.post('/', function(req, res) {
-//   var book = req.body;
-//   console.log(book);
-//   // PASTED PG CODE
-//   // errorConnecting is bool, db is what we query against,
-//   // done is a function that we call when we're done
-//   pool.connect(function(errorConnectingToDatabase, db, done){
-//     if(errorConnectingToDatabase) {
-//       console.log('Error connecting to the database.');
-//       res.sendStatus(500);
-//     } else {
-//       // We connected to the database!!!
-//       // Now we're going to GET things from the db
-//       var queryText = 'INSERT INTO "books" ("author", "title")' +
-//                       ' VALUES ($1, $2);';
-//       // errorMakingQuery is a bool, result is an object
-//       db.query(queryText, [book.author, book.title], function(errorMakingQuery, result){
-//         done();
-//         if(errorMakingQuery) {
-//           console.log('Attempted to query with', queryText);
-//           console.log('Error making query');
-//           res.sendStatus(500);
-//         } else {
-//           // console.log(result);
-//           // Send back the results
-//           res.sendStatus(200);
-//         }
-//       }); // end query
-//     } // end if
-//   }); // end pool
-// });
+router.post('/', function(req, res) {
+  var koala = req.body;
+  console.log(koala);
+  // PASTED PG CODE
+  // errorConnecting is bool, db is what we query against,
+  // done is a function that we call when we're done
+  pool.connect(function(errorConnectingToDatabase, db, done){
+    if(errorConnectingToDatabase) {
+      console.log('Error connecting to the database.');
+      res.sendStatus(500);
+    } else {
+      // We connected to the database!!!
+      // Now we're going to GET things from the db
+      var queryText = 'INSERT INTO "koalas" ("name", "age", "gender", "ready_for_transfer", "notes")' +
+                      ' VALUES ($1, $2, $3, $4, $5);';
+      // errorMakingQuery is a bool, result is an object
+      db.query(queryText, [koala.name, koala.age, koala.gender, koala.readyForTransfer, koala.notes], function(errorMakingQuery, result){
+        done();
+        if(errorMakingQuery) {
+          console.log('Attempted to query with', queryText);
+          console.log('Error making query');
+          res.sendStatus(500);
+        } else {
+          // console.log(result);
+          // Send back the results
+          res.sendStatus(200);
+        }
+      }); // end query
+    } // end if
+  }); // end pool
+});
 //
 // // PUT is similar to POST when using PG
 // router.put('/', function(req, res){
