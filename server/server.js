@@ -8,7 +8,7 @@ var koalaData = require('./routes/koala.js');
 app.use(bodyParser.urlencoded({extended: true}));
 
 // RENAME
-app.use('/koala', koalaData);
+app.use('/koalas', koalaData);
 
 
 // Serve back static files by default

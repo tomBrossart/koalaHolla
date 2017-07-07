@@ -31,6 +31,7 @@ function getKoalas(){
     type: 'GET',
     success: function( data ){
       console.log( 'got some koalas: ', data );
+      appendToDom();
     } // end success
   }); //end ajax
   // display on DOM with buttons that allow edit of each

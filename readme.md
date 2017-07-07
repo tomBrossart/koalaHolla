@@ -20,7 +20,7 @@ Client needs
 Koala Holla has provided a TSV (tab separated values) spreadsheet of their current inventory. They want a database table that houses this information and can be viewed at any time.
 [X] verify folders setup and linking -- any npm installs
 [ ] create router -- js file and link it up
-[ ] You should add this table to your existing **antares** database.
+[X] You should add this table to your existing **antares** database.
 [ ]  import the data with GET request,
 [ ] create a web app to display the Koalas.
 [ ] Users should be able to add new Koalas to the database through the provided HTML form.
@@ -49,3 +49,7 @@ Sample Output
 Your final product may look something like this:
 
 ![sample](sample.png)
+
+
+NOTES
+  * how to add TSV file more efficiently -- this way? https://stackoverflow.com/questions/20455378/insert-tsv-files-into-postgresql-db
