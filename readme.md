@@ -30,6 +30,11 @@ They have also provided their logo and the source code from when Lou (a KH emplo
 Hard Mode
 ---
 1. Ability for mark Koala ready for transfer. Add a button to each row that reads 'Ready for Transfer'. When the user clicks on the button, it should update the database for the specific Koala. The 'Ready for Transfer' button should only appear for Koalas that haven't yet been marked ready for transfer.
+[X] create new row Mark Ready in both HTML and Postico
+[X] append data-transfer with koala.readyForTransfer during appendToDom()
+[X] if statement to determine readyForTransfer Y or N
+[X] if N append button
+[ ] button should have click listener to delete button and change koala.readyForTransfer from Y to N, which updates db
 
 2. Ability to delete Koalas from the database.
 
@@ -54,3 +59,5 @@ Your final product may look something like this:
 NOTES
   * how to add TSV file more efficiently -- this way? https://stackoverflow.com/questions/20455378/insert-tsv-files-into-postgresql-db
   * POSTICO Error -- couldnt insert new koala because ID already existed?
+  * How to change Postico column to boolean values
+  * Not sure why Data isn't working on line 10 -- trying to select which Koala to change RFT from false to true

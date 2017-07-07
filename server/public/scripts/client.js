@@ -5,6 +5,12 @@ $( document ).ready( function(){
   // load existing koalas on page load
   getKoalas();
 
+  $('#viewKoalas').on('click', '.rft', function() {
+    $(this).hide();
+    var k = $(this).parent().data('koalas');
+    console.log(k);
+  });
+
   // add koala button click
   $( '#addButton' ).on( 'click', function(){
     console.log( 'in addButton on click' );
@@ -58,11 +64,18 @@ function appendToDom(koalas) {
   for(var i = 0; i < koalas.length; i+=1) {
     var $tr = $('<tr></tr>');
     var koala = koalas[i];
+    $tr.data('koala', koala.id);
     $tr.append('<td>' + koala.name + '</td>');
     $tr.append('<td>' + koala.age + '</td>');
     $tr.append('<td>' + koala.gender + '</td>');
     $tr.append('<td>' + koala.ready_for_transfer + '</td>');
     $tr.append('<td>' + koala.notes + '</td>');
+    $tr.append('<button class = "rft" id="' + koala.ready_for_transfer + '">Ready for Transfer</td>');
     $('#viewKoalas').append($tr);
+
+    if(koala.ready_for_transfer == "true") {
+      // how to target specific Koalas button
+      $('button[id=' + koala.ready_for_transfer + ']').hide();
+    }
   }
 }
